@@ -888,4 +888,86 @@ Package pdftex.def Info: wordcloud_negative.png  used on input line 140.
 File: Transformer_train_loss.png Graphic file (type png)
 <use Transformer_train_loss.png>
 Package pdftex.def Info: Transformer_train_loss.png  used on input line 173.
-(pdftex.def)         
+(pdftex.def)             Requested size: 260.00905pt x 156.00383pt.
+ [9
+
+ <./Transformer_train_loss.png>]
+<Transformer_eval_bleu.png, id=115, 722.7pt x 433.62pt>
+File: Transformer_eval_bleu.png Graphic file (type png)
+<use Transformer_eval_bleu.png>
+Package pdftex.def Info: Transformer_eval_bleu.png  used on input line 182.
+(pdftex.def)             Requested size: 260.00905pt x 156.00383pt.
+ [10
+
+ <./Transformer_eval_bleu.png>]
+<Transformer_eval_f1.png, id=124, 722.7pt x 433.62pt>
+File: Transformer_eval_f1.png Graphic file (type png)
+<use Transformer_eval_f1.png>
+Package pdftex.def Info: Transformer_eval_f1.png  used on input line 191.
+(pdftex.def)             Requested size: 260.00905pt x 156.00383pt.
+ [11
+
+ <./Transformer_eval_f1.png>]
+<BERT_Train_Accuracy.png, id=133, 722.7pt x 433.62pt>
+File: BERT_Train_Accuracy.png Graphic file (type png)
+<use BERT_Train_Accuracy.png>
+Package pdftex.def Info: BERT_Train_Accuracy.png  used on input line 200.
+(pdftex.def)             Requested size: 260.00905pt x 156.00383pt.
+ [12
+
+ <./BERT_Train_Accuracy.png>]
+<BERT_Train_F1.png, id=142, 722.7pt x 433.62pt>
+File: BERT_Train_F1.png Graphic file (type png)
+<use BERT_Train_F1.png>
+Package pdftex.def Info: BERT_Train_F1.png  used on input line 209.
+(pdftex.def)             Requested size: 260.00905pt x 156.00383pt.
+ [13
+
+ <./BERT_Train_F1.png>]
+<BERT_Train_Loss.png, id=152, 722.7pt x 433.62pt>
+File: BERT_Train_Loss.png Graphic file (type png)
+<use BERT_Train_Loss.png>
+Package pdftex.def Info: BERT_Train_Loss.png  used on input line 218.
+(pdftex.def)             Requested size: 260.00905pt x 156.00383pt.
+ [14
+
+ <./BERT_Train_Loss.png>] [15
+
+] [16
+
+] [17
+
+]
+\tf@nav=\write6
+\openout6 = `slide.nav'.
+
+\tf@toc=\write7
+\openout7 = `slide.toc'.
+
+\tf@snm=\write8
+\openout8 = `slide.snm'.
+
+ (./slide.aux)
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-20>
+ ***********
+Package rerunfilecheck Info: File `slide.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+ ) 
+Here is how much of TeX's memory you used:
+ 27091 strings out of 474116
+ 526798 string characters out of 5747717
+ 1937190 words of memory out of 5000000
+ 48859 multiletter control sequences out of 15000+600000
+ 583246 words of font info for 113 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 128i,15n,123p,431b,655s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on slide.pdf (17 pages, 16631348 bytes).
+PDF statistics:
+ 228 PDF objects out of 1000 (max. 8388607)
+ 137 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
+ 146 words of extra memory for PDF output out of 10000 (max. 10000000)
+
