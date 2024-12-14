@@ -35,12 +35,12 @@
 \setbeamercolor{block body}{bg=lightprimary, fg=primarytext}
 
 % Adjust global spacing
-% \setlength{\parskip}{0.1em}
-% \setlength{\itemsep}{0.1em}
-% \setlength{\columnsep}{0.3em}
-% \setlength{\abovecaptionskip}{0.1em}
-% \setlength{\belowcaptionskip}{0.1em}
-% \setbeamersize{text margin left=0.3em, text margin right=0.3em}
+\setlength{\parskip}{0.1em}
+\setlength{\itemsep}{0.1em}
+\setlength{\columnsep}{0.3em}
+\setlength{\abovecaptionskip}{0.1em}
+\setlength{\belowcaptionskip}{0.1em}
+\setbeamersize{text margin left=0.3em, text margin right=0.3em}
 
 \setbeamertemplate{navigation symbols}{} % Remove navigation symbols
 
@@ -112,30 +112,27 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Dataset Visualization: Neutral Sentiment}
-  \textbf{Word Cloud: Neutral Sentiment}
+\begin{frame}{Dataset Visualization (Continue)}
+  \textbf{Word Clouds:}
   \begin{figure}
     \centering
-    \includegraphics[width=0.7\linewidth]{wordcloud_neutral.png}
+    % Top: Neutral sentiment
+    \includegraphics[width=0.33\linewidth]{wordcloud_neutral.png}
     \caption{\small Neutral Sentiment}
-  \end{figure}
-\end{frame}
+    \vspace{1em}
 
-\begin{frame}{Dataset Visualization: Positive Sentiment}
-  \textbf{Word Cloud: Positive Sentiment}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.7\linewidth]{wordcloud_positive.png}
-    \caption{\small Positive Sentiment}
-  \end{figure}
-\end{frame}
+    % Bottom: Positive and Negative sentiments side-by-side
+    \begin{columns}[c]
+      \column{0.5\textwidth}
+      \centering
+      \includegraphics[width=0.63\linewidth]{wordcloud_positive.png}
+      \caption{\small Positive Sentiment}
 
-\begin{frame}{Dataset Visualization: Negative Sentiment}
-  \textbf{Word Cloud: Negative Sentiment}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.7\linewidth]{wordcloud_negative.png}
-    \caption{\small Negative Sentiment}
+      \column{0.5\textwidth}
+      \centering
+      \includegraphics[width=0.63\linewidth]{wordcloud_negative.png}
+      \caption{\small Negative Sentiment}
+    \end{columns}
   \end{figure}
 \end{frame}
   
@@ -163,57 +160,51 @@
 %-----------------------------------------------
 % Results (5 slides)
 %-----------------------------------------------
-\begin{frame}{Results: Training Loss (TNMT)}
-  \textbf{Training Loss}
+\begin{frame}{Results: Transformer-based NMT model (TNMT)}
+  \textbf{Transformer Model Results:}
   \begin{figure}
     \centering
-    \includegraphics[width=0.6\linewidth]{Transformer_train_loss.png}
-    \caption{\small Training Loss: 200 steps stable, 6.55}
+    % Top: Training Loss
+    \includegraphics[width=0.25\linewidth]{Transformer_train_loss.png}
+    \caption{\small Training Loss: 200 steps stable}
+    \vspace{1em}
+
+    % Bottom: BLEU Score and F1 Score side-by-side
+    \begin{columns}[c]
+      \column{0.5\textwidth}
+      \centering
+      \includegraphics[width=0.55\linewidth]{Transformer_eval_bleu.png}
+      \caption{\small Evaluation BLEU Score: 130 steps stable}
+
+      \column{0.5\textwidth}
+      \centering
+      \includegraphics[width=0.55\linewidth]{Transformer_eval_f1.png}
+      \caption{\small Evaluation F1 Score: 200 steps stable}
+    \end{columns}
   \end{figure}
 \end{frame}
 
-\begin{frame}{Results: BLEU Score (TNMT)}
-  \textbf{Evaluation BLEU Score}
+\begin{frame}{Results: BERT Training}
+  \textbf{BERT Model Training Results:}
   \begin{figure}
     \centering
-    \includegraphics[width=0.6\linewidth]{Transformer_eval_bleu.png}
-    \caption{\small Evaluation BLEU Score: 130 steps stable, 0.08}
-  \end{figure}
-\end{frame}
+    % Top: Training Accuracy
+    \includegraphics[width=0.25\linewidth]{BERT_Train_Accuracy.png}
+    \caption{\small Training Accuracy: Increasing}
+    \vspace{1em}
 
-\begin{frame}{Results: F1 Score (TNMT)}
-  \textbf{Evaluation F1 Score}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.6\linewidth]{Transformer_eval_f1.png}
-    \caption{\small Evaluation F1 Score: 200 steps stable, 0.0015}
-  \end{figure}
-\end{frame}
+    % Bottom: F1 Score and Training Loss side-by-side
+    \begin{columns}[c]
+      \column{0.5\textwidth}
+      \centering
+      \includegraphics[width=0.55\linewidth]{BERT_Train_F1.png}
+      \caption{\small Training F1 Score: 60 steps stable}
 
-\begin{frame}{Results: Training Accuracy (BERT)}
-  \textbf{Training Accuracy}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.6\linewidth]{BERT_Train_Accuracy.png}
-    \caption{\small Training Accuracy: Increasing, ending 0.46}
-  \end{figure}
-\end{frame}
-
-\begin{frame}{Results: Training F1 Score (BERT)}
-  \textbf{Training F1 Score}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.6\linewidth]{BERT_Train_F1.png}
-    \caption{\small Training F1 Score: 60 steps stable, 0.39}
-  \end{figure}
-\end{frame}
-
-\begin{frame}{Results: Training Loss (BERT)}
-  \textbf{Training Loss}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.6\linewidth]{BERT_Train_Loss.png}
-    \caption{\small Training Loss: 120 steps stable, 1.06}
+      \column{0.5\textwidth}
+      \centering
+      \includegraphics[width=0.55\linewidth]{BERT_Train_Loss.png}
+      \caption{\small Training Loss: 120 steps stable}
+    \end{columns}
   \end{figure}
 \end{frame}
 
