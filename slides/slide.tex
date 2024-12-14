@@ -13,6 +13,9 @@
 \usepackage{tikz}
 \usepackage{color}
 
+% In order to support Chinese characters, you need to install the font package 'ctex' and use the 'xeCJK' package.
+\usepackage[UTF8]{ctex}
+
 \usetheme{Madrid} % You can choose any theme you like
 \usecolortheme{default}
 
@@ -218,10 +221,16 @@
 \end{frame}
 
 \begin{frame}{Results - Domain Adaptation}
+\textbf{What we learn:}
   \begin{itemize}
     \item Effectively \underline{adapted English-origin sentiment cues to Chinese texts}.
     \item Enhanced \underline{model robustness in dynamic financial contexts}.
     \item Demonstrated \underline{scalable approach to other languages/domains}.
+  \end{itemize}
+\textbf{Example:}
+  \begin{itemize}
+    \item \underline{Chinese Text:} "在英国央行本次议息会议上，市场焦点可能会落在表决结果和政策制定者的沟通上。如果投票结果显示是一个势均力敌的决定，并且会议声明再次指出不急于进一步降息，可能打压未来的宽松预期。"
+    \item \underline{Sentiment Label:} Negative
   \end{itemize}
 \end{frame}
 
