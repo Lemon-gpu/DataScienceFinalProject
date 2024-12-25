@@ -85,33 +85,39 @@ This study offers three primary contributions:
 Financial sentiment analysis aims to quantify subjective feelings or attitudes from unstructured text. Studies have shown that managerial tone, media coverage, and user-generated content can all be predictive of stock returns and market volatility \cite{ref3,ref4}. Despite substantial progress in English financial text analysis, limited research has focused on Chinese corpora, due primarily to the shortage of annotated data and the linguistic complexity of Chinese.
 
 \subsection{Transformer Models in NLP}
-The Transformer architecture proposed by Vaswani et al. \cite{ref1} uses multi-head self-attention to capture global dependencies in text. This architecture has proven adept at machine translation, sentiment analysis, and question answering. In recent years, various Transformer-based models (e.g., BERT, GPT variants) have achieved state-of-the-art results across numerous NLP benchmarks. 
+The Transformer architecture proposed by Vaswani et al. \cite{ref1} uses multi-head self-attention to capture global dependencies in text. This architecture has proven adept at machine translation, sentiment analysis, and question answering. In recent years, various Transformer-based models (e.g., BERT, GPT variants) have achieved state-of-the-art results across numerous NLP benchmarks. Figure \ref{fig:attention_mechanisms} illustrates the core components of Transformer models.
 
 \begin{figure}[!ht]
 	\centering
 	\begin{subfigure}[b]{0.32\textwidth}
 		\centering
 		\includegraphics[height=4cm]{attention.png}
-		\caption*{Attention mechanism.}
+		\caption{Attention mechanism.}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.32\textwidth}
 		\centering
 		\includegraphics[height=4cm]{self_attention_mechanism.png}
-		\caption*{Self-attention}
+		\caption{Self-attention}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.32\textwidth}
 		\centering
 		\includegraphics[height=4cm]{multihead_attention.png}
-		\caption*{Multi-head attention}
+		\caption{Multi-head attention}
 	\end{subfigure}
-	\caption{Illustrations of various attention mechanisms.}
+	\caption{Illustrations of attention mechanisms in Transformer models.}
 	\label{fig:attention_mechanisms}
 \end{figure}
 
 \subsection{BERT and Domain Adaptation}
 BERT \cite{ref2} uses a bidirectional encoder to learn contextual representations through masked language modeling and next sentence prediction. Fine-tuning BERT on domain-specific corpora often yields significant performance improvements. In financial domains, specialized BERT variants or further pre-training on finance-related text can better capture terminology and context.
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[height=4cm]{BERT.png}
+	\caption{BERT architecture.}
+\end{figure}
 
 %----------------------------------------
 % 3. METHODOLOGY
@@ -122,67 +128,77 @@ BERT \cite{ref2} uses a bidirectional encoder to learn contextual representation
 We gathered 54,749 Chinese financial news articles from various reputable sources, including 40,000 Chinese financial news articles and 14,749 translated English financial texts. The latter were translated using a Transformer-based NMT model. We also utilized a Chinese financial sentiment lexicon to pre-label a subset of unannotated texts, enriching the training set. Each news is labeled with a sentiment category: \textbf{positive}, \textbf{neutral}, or \textbf{negative}. 
 
 All data were tokenized using a Chinese tokenizer (\textit{jieba}). For the unannotated subset, we employed a Chinese financial sentiment lexicon to pre-label texts. This procedure facilitated the creation of an enriched training set that better captures domain-specific language features.
+
+\paragraph{Data Statistics and Visualization}
+We conducted exploratory data analysis to understand the distribution of sentiment categories, text lengths, and word frequencies. Figures \ref{fig:wordclouds}--\ref{fig:sentiment_distribution} illustrate the word clouds, top words, text length distributions, and sentiment category distributions in our dataset.
+
 \begin{figure}[!ht]
 	\centering
 	\begin{subfigure}[b]{0.32\textwidth}
-	\includegraphics[width=\linewidth]{wordcloud_positive.png}
-	\caption{Word cloud of positive}
+		\includegraphics[width=\linewidth]{wordcloud_positive.png}
+		\caption{Word cloud of positive}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.32\textwidth}
-	\includegraphics[width=\linewidth]{wordcloud_neutral.png}
-	\caption{Word cloud of neutral}
+		\includegraphics[width=\linewidth]{wordcloud_neutral.png}
+		\caption{Word cloud of neutral}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.32\textwidth}
-	\includegraphics[width=\linewidth]{wordcloud_negative.png}
-	\caption{Word cloud of negative}
+		\includegraphics[width=\linewidth]{wordcloud_negative.png}
+		\caption{Word cloud of negative}
 	\end{subfigure}
+	\caption{Word clouds for each sentiment category, illustrating the most frequent words associated with positive, neutral, and negative sentiments. These visualizations highlight the key terms that differentiate the sentiment classes in the dataset.}
+	\label{fig:wordclouds}
 \end{figure}
 
 \begin{figure}[!ht]
 	\centering
 	\begin{subfigure}[b]{0.32\textwidth}
-	\includegraphics[width=\linewidth]{top_words_positive.png}
-	\caption{Top positive words}
+		\includegraphics[height=4cm]{top_words_positive.png}
+		\caption{Top positive words}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.32\textwidth}
-	\includegraphics[width=\linewidth]{top_words_neutral.png}
-	\caption{Top neutral words}
+		\includegraphics[height=4cm]{top_words_neutral.png}
+		\caption{Top neutral words}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.32\textwidth}
-	\includegraphics[width=\linewidth]{top_words_negative.png}
-	\caption{Top negative words}
+		\includegraphics[height=4cm]{top_words_negative.png}
+		\caption{Top negative words}
 	\end{subfigure}
+	\caption{Most frequent words in each sentiment category, showcasing the top terms that contribute to positive, neutral, and negative sentiments. These charts provide insight into the language patterns prevalent in different sentiment classes.}
+	\label{fig:top_words}
 \end{figure}
 
 \begin{figure}[!ht]
 	\centering
 	\begin{subfigure}[b]{0.32\textwidth}
-	\includegraphics[width=\linewidth]{text_length_histogram.png}
-	\caption{Histogram of text lengths}
+		\includegraphics[height=4cm]{text_length_histogram.png}
+		\caption{Histogram of text lengths}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.32\textwidth}
-	\includegraphics[width=\linewidth]{text_length_boxplot.png}
-	\caption{Boxplot of text lengths}
+		\includegraphics[height=4cm]{text_length_boxplot.png}
+		\caption{Boxplot of text lengths}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.32\textwidth}
-	\includegraphics[width=\linewidth]{sentiment_distribution.png}
-	\caption{Sentiment Distribution}
+		\includegraphics[height=4cm]{sentiment_distribution.png}
+		\caption{Sentiment Distribution}
 	\end{subfigure}
+	\caption{Statistical analysis of the dataset: (a) Histogram displaying the distribution of text lengths, (b) Boxplot illustrating the variability and outliers in text lengths, and (c) Distribution of sentiment categories showing the proportion of positive, neutral, and negative texts. These analyses provide a foundational understanding of the dataset's characteristics.}
+	\label{fig:sentiment_distribution}
 \end{figure}
-
-\subsection{Lexicon-Based Annotation}
-
-Lexicon-based annotation matches words or phrases from a predefined dictionary to text segments and assigns associated sentiment scores. In the Chinese financial domain, terminologies and colloquialisms evolve rapidly, complicating this step. Yet, even partial coverage by a domain-specific lexicon can significantly accelerate the annotation process. 
 
 \paragraph{Meaningless Chinese Words in Word Clouds}
 During word-cloud visualization, several tokens appeared meaningless or out of context. Closer investigation revealed that these originated from awkward translations of specialized English finance terms. This underscores the limitations of our translation approach, wherein certain English words map improperly into Chinese hyperspace, yielding unnatural tokens that nonetheless appear in frequency-based visualizations.
 
+
+\subsection{Lexicon-Based Annotation}
+
+Lexicon-based annotation matches words or phrases from a predefined dictionary to text segments and assigns associated sentiment scores. Jiang et al. \cite{ref3, ref4} proposed a Chinese financial sentiment lexicon that In the Chinese financial domain, terminologies and colloquialisms evolve rapidly, complicating this step. Yet, even partial coverage by a domain-specific lexicon can significantly accelerate the annotation process. 
 
 \subsection{Model Training}
 \subsubsection{TNMT for Corpus Expansion}
@@ -192,6 +208,15 @@ We trained a TNMT model to translate English financial texts into Chinese. Evalu
 \subsubsection{BERT Fine-Tuning}
 Our main classification model builds upon a pre-trained Chinese BERT. We fine-tuned it by feeding the annotated data as input, monitoring metrics like accuracy, F1 score, and training loss. While BERT generally outperforms older generation RNN-based methods, traditional or Bayesian models may, in certain scenarios with less data or higher interpretability demands, provide more transparent and sometimes even superior performance.
 
+The whole algorithm pipeline is illustrated in Figure \ref{fig:pipeline}.\
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=\textwidth]{pipeline.png}
+	\caption{Algorithm pipeline for Chinese financial sentiment analysis. The workflow encompasses data collection, translation, lexicon-based annotation, and model training.}
+	\label{fig:pipeline}
+\end{figure}
+
 %----------------------------------------
 % 4. EXPERIMENTS AND RESULTS
 %----------------------------------------
@@ -199,94 +224,87 @@ Our main classification model builds upon a pre-trained Chinese BERT. We fine-tu
 \label{sec:results}
 
 \subsection{Transformer-Based Translation}
-Figures~\ref{fig:tnmt_train_loss}--\ref{fig:tnmt_eval_f1} show the training loss and evaluation scores of the TNMT model. While the BLEU scores and training loss curves suggest reasonable performance, the F1 score remains low, reflecting difficulties in translating nuanced financial phrases.
+Figures~\ref{fig:tnmt_performance} shows the training loss, evaluation BLEU score, F1 score, accuracy, precision, and recall of the TNMT model over 350 steps. The model exhibits a steady decline in training loss and a corresponding increase in evaluation BLEU, F1, and accuracy. Precision and recall curves also show consistent improvement, indicating the model's ability to capture nuanced sentiment cues in the translated texts. However, the presence of "meaningless" tokens in word clouds suggests that the model may struggle with specialized financial terminology, necessitating further refinement. Furthermore, although the performance metrics show improvement, the model's overall accuracy and F1 score remain suboptimal, indicating the need for additional enhancements.
 
-\begin{figure}[ht]
-\centering
-\begin{subfigure}[b]{0.32\textwidth}
-    \includegraphics[width=\linewidth]{Transformer_train_loss.png}
-    \caption{Training Loss (TNMT)}
-    \label{fig:tnmt_train_loss}
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.32\textwidth}
-    \includegraphics[width=\linewidth]{Transformer_eval_bleu.png}
-    \caption{Evaluation BLEU (TNMT)}
-    \label{fig:tnmt_eval_bleu}
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.32\textwidth}
-    \includegraphics[width=\linewidth]{Transformer_eval_f1.png}
-    \caption{Evaluation F1 (TNMT)}
-    \label{fig:tnmt_eval_f1}
-\end{subfigure}
-\caption{TNMT model performance over 350 steps.}
-\label{fig:tnmt}
+% Model Performance Over 350 Steps
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[b]{0.32\textwidth}
+		\includegraphics[width=\linewidth]{Transformer_train_loss.png}
+		\caption{Training Loss}
+		\label{fig:train_loss}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.32\textwidth}
+		\includegraphics[width=\linewidth]{Transformer_eval_bleu.png}
+		\caption{Evaluation BLEU}
+		\label{fig:eval_bleu}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.32\textwidth}
+		\includegraphics[width=\linewidth]{Transformer_eval_f1.png}
+		\caption{Evaluation F1}
+		\label{fig:eval_f1}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.32\textwidth}
+		\includegraphics[width=\linewidth]{eval_accuracy.png}
+		\caption{Evaluation Accuracy}
+		\label{fig:eval_accuracy}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.32\textwidth}
+		\includegraphics[width=\linewidth]{eval_precision.png}
+		\caption{Precision Curve}
+		\label{fig:eval_precision}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.32\textwidth}
+		\includegraphics[width=\linewidth]{eval_recall.png}
+		\caption{Recall Curve}
+		\label{fig:eval_recall}
+	\end{subfigure}
+	\caption{Performance metrics of the TNMT model.}
+	\label{fig:tnmt_performance}
 \end{figure}
+
+Next, we evaluated a fine-tuned Chinese BERT model. Figures~\ref{fig:bert_training_performance} show the training accuracy, F1 score, loss, learning rate, precision, and recall over epochs. The model exhibits a steady increase in accuracy and F1 score, with a corresponding decrease in loss. Precision and recall curves also show consistent improvement, indicating the model's ability to capture nuanced sentiment cues in the translated texts. However, overall this model perform bad in the financial sentiment analysis task. This may due to the translation quality and the lexicon-based annotation.
 
 \begin{figure}[!ht]
 	\centering
 	\begin{subfigure}[b]{0.32\textwidth}
-	\includegraphics[width=\linewidth]{eval_accuracy.png}
-	\caption{Evaluation accuracy}
+		\includegraphics[width=\linewidth]{BERT_Train_Accuracy.png}
+		\caption{Training Accuracy}
 	\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.32\textwidth}
-	\includegraphics[width=\linewidth]{eval_precision.png}
-	\caption{Evaluation precision}
+	\hfill
+	\begin{subfigure}[b]{0.32\textwidth}
+		\includegraphics[width=\linewidth]{BERT_Train_F1.png}
+		\caption{Training F1 Score}
 	\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.32\textwidth}
-	\includegraphics[width=\linewidth]{eval_recall.png}
-	\caption{Evaluation recall}
+	\hfill
+	\begin{subfigure}[b]{0.32\textwidth}
+		\includegraphics[width=\linewidth]{BERT_Train_Loss.png}
+		\caption{Training Loss}
 	\end{subfigure}
-\end{figure}
-\subsection{BERT Fine-Tuning Performance}
-Next, we evaluated a fine-tuned Chinese BERT model. Figures~\ref{fig:bert_train_acc}--\ref{fig:bert_train_loss} depict the training accuracy, F1 score, and loss, respectively.
-
-\begin{figure}[ht]
-\centering
-\begin{subfigure}[b]{0.32\textwidth}
-    \includegraphics[width=\linewidth]{BERT_Train_Accuracy.png}
-    \caption{Training Accuracy}
-    \label{fig:bert_train_acc}
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.32\textwidth}
-    \includegraphics[width=\linewidth]{BERT_Train_F1.png}
-    \caption{Training F1 Score}
-    \label{fig:bert_train_f1}
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.32\textwidth}
-    \includegraphics[width=\linewidth]{BERT_Train_Loss.png}
-    \caption{Training Loss}
-    \label{fig:bert_train_loss}
-\end{subfigure}
-\caption{BERT fine-tuning performance trends.}
-\label{fig:bert}
+	
+	\begin{subfigure}[b]{0.32\textwidth}
+		\includegraphics[width=\linewidth]{Train_LR.png}
+		\caption{Training Learning Rate}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.32\textwidth}
+		\includegraphics[width=\linewidth]{Train_Precision.png}
+		\caption{Precision Curve}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.32\textwidth}
+		\includegraphics[width=\linewidth]{Train_Recall.png}
+		\caption{Recall Curve}
+	\end{subfigure}
+	\caption{BERT model training performance.}
+	\label{fig:bert_training_performance}
 \end{figure}
 
-% -- Train_LR.png
-\begin{figure}[!ht]
-	\centering
-	\begin{subfigure}[b]{0.32\textwidth}
-	\includegraphics[width=\linewidth]{Train_LR.png}
-	\caption{Training learning rate}
-\end{subfigure}
-\hfill
-	\begin{subfigure}[b]{0.32\textwidth}
-	\includegraphics[width=\linewidth]{Train_Precision.png}
-	\caption{Precision curve}
-\end{subfigure}
-\hfill
-	\begin{subfigure}[b]{0.32\textwidth}
-	\includegraphics[width=\linewidth]{Train_Recall.png}
-	\caption{Recall curve}
-	\end{subfigure}
-\end{figure}
-
-Although BERT ultimately achieves higher classification metrics compared with simpler baselines, certain traditional methods (e.g., logistic regression, SVM, or Bayesian inference) may match or surpass it under constrained data scenarios. Moreover, these methods often present clearer reasoning pathways, addressing interpretability concerns crucial in financial contexts.
+Although BERT ultimately achieves our goal of improving Chinese financial sentiment classification, the presence of "meaningless" tokens in word clouds suggests that the model may struggle with specialized financial terminology. Furthermore, the low accuracy and F1 score indicate that the model may not be well-suited or well tune for the financial sentiment analysis task. Future work will focus on refining translation techniques, exploring Bayesian or traditional machine learning methods, and enhancing data filtering mechanisms to improve classification accuracy and interpretability.
 
 %----------------------------------------
 % 5. DISCUSSION
@@ -319,6 +337,17 @@ This paper proposed a comprehensive solution to Chinese financial sentiment anal
 
 By addressing these fronts, we aim to develop robust automated sentiment systems that not only detect subtle emotional signals but also support transparent, accountable decision-making for financial market participants.
 
+%----------------------------------------
+% ACKNOWLEDGEMENTS
+%----------------------------------------
+
+\section*{Acknowledgements: Contribution of Authors}
+The authors extend their profound gratitude to the instructors for their invaluable guidance and unwavering support throughout the duration of the course. Furthermore, they express sincere appreciation for the constructive feedback provided by their peers and the intellectually stimulating discussions that have significantly deepened their comprehension of the subject matter. In the course of this project, all members contributed equally to its completion. Specifically, Chuan Jia undertook the responsibility of drafting the report/paper, Bo Li contributed by providing the conceptual inspiration for the topic and delivering the presentation, while Sheng Su was responsible for the implementation of the code, as well as the revision and refinement of the report/paper. Notably, no group leader was designated for this project, as all members collaborated on an equal footing.
+
+\section*{Acknowledgements: Observation}
+The course itself is both vibrant and intellectually invigorating; however, the sheer breadth and density of the material prove overwhelming, leaving us thoroughly fatigued. While we have undoubtedly derived substantial intellectual enrichment from it, our diverse backgrounds and varying capacities have rendered it challenging to keep pace with the demands of the curriculum. We hold the utmost respect for the instructor's noble intentions and acknowledge the profound benefits we have reaped from this learning experience. Nevertheless, we humbly propose the possibility of dividing the content into at least two distinct courses in the future. Such an adjustment would enable students to assimilate the material more effectively and engage with the subject matter on a deeper level. We remain profoundly grateful for the privilege of participating in this course and are confident that the knowledge and skills acquired will serve as invaluable assets in our future endeavors.
+
+\section*{Certification}
 %----------------------------------------
 % REFERENCES
 %----------------------------------------
