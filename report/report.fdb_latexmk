@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1735183067.83617 "c:/Data/Homework/DataScience/homework/Final/report/report.tex" "report.pdf" "report" 1735183084.62662 0
+["pdflatex"] 1735184421.74762 "c:/Data/Homework/DataScience/homework/Final/report/report.tex" "report.pdf" "report" 1735184439.59822 0
   "BERT.png" 1735122042 47555 4bd2d2039dfb047c49ec9807394c7bf2 ""
   "BERT_Train_Accuracy.png" 1734118674 601631 5acb0c79c9253baa0d1aba3a0beb0a89 ""
   "BERT_Train_F1.png" 1734118674 477940 680f6f6a7d05654e549bc80cd20b9019 ""
@@ -20,7 +20,7 @@
   "Transformer_eval_f1.png" 1734118700 386994 1587e178b6a45fdabb79aa9f335ec815 ""
   "Transformer_train_loss.png" 1734118700 392183 44b8bb42805f01f211ec4b6cc3c8439f ""
   "attention.png" 1734065218 87962 3da22565ed2c2b9d5403681306938c0d ""
-  "c:/Data/Homework/DataScience/homework/Final/report/report.tex" 1735183051 31393 a1c2928e5b7af4c1cf8c630afbe6d6af ""
+  "c:/Data/Homework/DataScience/homework/Final/report/report.tex" 1735184420 31393 b29a9320c2e21ae6830c46c914a6c678 ""
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc" 1715331565 2327 9d6df24f9c4f7368395224341a95523a ""
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc" 1715331565 2359 de53213020575850c8f8debc35095765 ""
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc" 1715331565 3031 6c4d3515bf7115d8518af1c9ab97ca44 ""
@@ -148,9 +148,9 @@
   "eval_recall.png" 1734118700 452808 671b9efd3dd0d34c7c9b45444f5123a0 ""
   "multihead_attention.png" 1734065218 47024 1836d00687fbd2b21565fbce3f7641e2 ""
   "pipeline.png" 1735124295 313407 8500333a2c7b599c2802739b7d5308d5 ""
-  "report.aux" 1735183084 8712 74a5196a3f4f457538c664319ae68806 "pdflatex"
-  "report.out" 1735183084 2439 22ebca458911e6f3c99ef4730fe2b45e "pdflatex"
-  "report.tex" 1735183051 31393 a1c2928e5b7af4c1cf8c630afbe6d6af ""
+  "report.aux" 1735184439 8712 74a5196a3f4f457538c664319ae68806 "pdflatex"
+  "report.out" 1735184439 2439 22ebca458911e6f3c99ef4730fe2b45e "pdflatex"
+  "report.tex" 1735184420 31393 b29a9320c2e21ae6830c46c914a6c678 ""
   "self_attention_mechanism.png" 1734065218 23208 bcc9e894777073b34b742ae768933495 ""
   "sentiment_distribution.png" 1734118668 147804 0555c456b553a5e4a11466d7cc48630a ""
   "text_length_boxplot.png" 1734118668 217970 47c3ac666b8dd19911abf68b6f6d4766 ""
